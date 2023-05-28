@@ -1,0 +1,56 @@
+<div class="container bg-white" style="width: 800px ; height:800px">
+    <div class="p-2" *ngFor=" let invoice of data" >
+  
+    
+        <h5>
+            Name: {{invoice.customerName}}
+        </h5>
+        <h6>
+            ID: {{invoice.customerId}}
+        </h6>
+        <h6>
+            Invoice ID: {{invoice.invoiceId}}
+        </h6>
+
+        <table mat-table [dataSource]="invoice.products" class="mat-elevation-z8" >
+
+            <ng-container matColumnDef="Product Name">
+                <th mat-header-cell *matHeaderCellDef> Product Name </th>
+                <td mat-cell *matCellDef="let product"> 
+                  {{product.productName}}
+                </td>
+              </ng-container>
+
+            <ng-container matColumnDef="Product Price">
+                <th mat-header-cell *matHeaderCellDef> Product Price </th>
+                <td mat-cell *matCellDef="let product"> rs {{product.productPrice}} </td>
+              </ng-container>
+
+            <ng-container matColumnDef="Quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let product"> {{product.quantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Total">
+                <th mat-header-cell *matHeaderCellDef> Total </th>
+                <td mat-cell *matCellDef="let product">rs {{product.productTotalAmount}} </td>
+              </ng-container>
+  
+
+           
+       
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            
+          </table>
+
+          <h5 class="p-2">
+            Invoice Total: Rs {{invoice.invoiceTotalAmount}}
+        </h5>
+
+        
+    </div>
+
+</div>

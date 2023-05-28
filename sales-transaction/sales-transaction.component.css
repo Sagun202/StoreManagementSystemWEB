@@ -1,0 +1,7 @@
+.invoice-generate{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 9;
+    height: 60px;
+}
